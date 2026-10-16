@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.5l4.5 4.5L19 7"/>
+          </svg>
+        </div>
+        <h1>Task Tracker</h1>
+      </div>
+      <p class="today" id="todayDate"></p>
+    </header>
+
+    <main class="card">
+
+      <form class="add-form" id="addForm" novalidate>
+        <input type="text" id="taskInput" placeholder="What needs doing?" maxlength="120" autocomplete="off" aria-label="New task">
+        <button type="submit" class="add-btn">Add task</button>
+      </form>
+      <p class="error" id="errorMsg" role="alert"></p>
+
+      <section class="stats" aria-label="Task summary">
+        <div class="tile tile-total">
+          <span class="tile-label">Total tasks</span>
+          <span class="tile-number" id="totalCount">0</span>
+        </div>
+        <div class="tile tile-done">
+          <span class="tile-label">Completed</span>
+          <span class="tile-number" id="completedCount">0</span>
+        </div>
+        <div class="tile tile-pending">
+          <span class="tile-label">Pending</span>
+          <span class="tile-number" id="pendingCount">0</span>
+        </div>
+      </section>
+
+      <section class="progress" aria-label="Progress">
+        <div class="progress-text">
+          <span id="progressLabel">Nothing to do yet</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="track">
+          <div class="fill" id="progressFill"></div>
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button type="button" class="filter-btn active" data-filter="all">All <span class="pill" id="countAll">0</span></button>
+          <button type="button" class="filter-btn" data-filter="pending">Pending <span class="pill" id="countPending">0</span></button>
+          <button type="button" class="filter-btn" data-filter="completed">Completed <span class="pill" id="countCompleted">0</span></button>
+        </div>
+        <p class="saved"><span class="dot"></span>Saved on this device</p>
+      </div>
+
+      <ul id="taskList"></ul>
+
+      <div class="empty" id="emptyMsg" hidden>
+        <svg viewBox="0 0 48 48" width="52" height="52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="8" width="28" height="34" rx="5"/>
+          <path d="M18 6h12v6H18z"/>
+          <path d="M17 24h14M17 32h8"/>
+        </svg>
+        <p id="emptyText"></p>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
